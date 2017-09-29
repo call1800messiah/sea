@@ -1,0 +1,30 @@
+{
+  "name": "sea",
+  "version": "1.0.0",
+  "description": "Sea adventure framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/call1800messiah/sea.git"
+  },
+  "keywords": [
+    "dsa",
+    "sea",
+    "adventure"
+  ],
+  "author": "call1800messiah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/call1800messiah/sea/issues"
+  },
+  "homepage": "https://github.com/call1800messiah/sea#readme",
+  "dependencies": {
+    "express": "^4.16.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
