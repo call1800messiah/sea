@@ -1,0 +1,9 @@
+<div>
+    <input [(ngModel)]="date.day" (change)="updateValue(date.day,date.month,date.year)">
+    <select [(ngModel)]="date.month" (change)="updateValue(date.day,date.month,date.year)">
+        <option *ngFor="let month of months; let i=index" [value]="i">{{month}}</option>
+    </select>
+    <input [(ngModel)]="date.year" (change)="updateValue(date.day,date.month,date.year)">
+    <span>{{date.age}}</span><br />
+    <input [(ngModel)]="value" (change)="updateDate()">
+</div>
