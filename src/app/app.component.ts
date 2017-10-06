@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-    public test = {
-        date: 30
-    };
+export class AppComponent{   
+    constructor(){}
 }

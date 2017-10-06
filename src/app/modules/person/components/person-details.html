@@ -1,0 +1,6 @@
+<div class="person-details">
+    <label>Name</label><input [(ngModel)]="person.name" placeholder="Name" ><br/>
+    <label>Geburtsdatum</label><tde-date [(value)]="person.birthday"></tde-date><br/>
+    <label>Alter</label>{{person.birthday | tdeAge}}<br/>
+    <label>Vater</label><tde-list-select [list]="test.list" [selected]="person.father" (add)="addFather($event)"></tde-list-select>
+</div>
