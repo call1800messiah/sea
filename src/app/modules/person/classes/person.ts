@@ -1,8 +1,20 @@
-export class Person{
-    constructor(
-        public id: number,
-        public name: string,
-        public birthday: number,
-        public father: object
-    ){}
+import * as Parse from 'parse';
+
+export class Person extends Parse.Object {
+
+    get name(): string {
+        return this.get("name");
+    }
+
+    set name(value:string) {
+        this.set("name", value);
+    }
+
+    public birthday: number;
+    public father: Person;
+
+    constructor(){
+        super('Person');
+    }
+
 }

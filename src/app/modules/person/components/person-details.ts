@@ -36,9 +36,11 @@ export class PersonDetailsComponent implements OnInit {
     }
     
     ngOnInit():void{
+        /*
         this.route.paramMap
             .switchMap((params: ParamMap) => this.personService.getPerson(+params.get('id')))
             .subscribe(person => this.person = person);
+            */
     }
 }
 
