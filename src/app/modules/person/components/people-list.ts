@@ -1,8 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Observable } from 'rxjs';
-
 import { Person } from './../classes/person';
 import { PersonService } from './../person.service';
 
@@ -12,12 +10,12 @@ import { PersonService } from './../person.service';
     styleUrls: ['./people-list.css']
 })
 export class PeopleListComponent implements OnInit {
-    people$: Observable<Person[]>;
+    people: Person[];
     
     constructor(private personService: PersonService, private router: Router){}
     
     ngOnInit(): void {
-        this.people$ = this.personService.getAllPersons();
+        this.people = this.personService.getAllPersons();
     }
     
     onSelect(person: Person): void {

@@ -5,19 +5,19 @@ import 'rxjs/add/operator/toPromise';
 
 import { Person } from './classes/person';
 import {EventEmitter} from 'events';
-import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class PersonService {
     private people: Person[];
-    private peopleSubject = new BehaviorSubject<Person[]>([]);
     private peopleSub: EventEmitter;
+    private person: Person;
+    private personSub: EventEmitter;
     
     constructor(private ParseService:ParseService) {
 
     }
 
-    getAllPersons(): Observable<Person[]> {
+    getAllPersons(): Person[] {
         /*
         return new Promise((resolve, reject) => {
             if(this.people) {
@@ -30,8 +30,15 @@ export class PersonService {
             }
         });
         */
-
-        return this.peopleSubject.asObservable();
+        this.peopleSub = this.ParseService.getAllPersons();
+        this.peopleSub.on("create",(people:Person[])=> {
+            this.people = people;
+            console.log("Create",people);
+        });
+        return this.people;
     }
     
+    getPerson(id:number):Person {
+        return this.person;
+    }
 }

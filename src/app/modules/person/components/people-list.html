@@ -1,6 +1,6 @@
 <div class="people-list">
     <ul class="people">
-        <li *ngFor="let person of people$ | async" (click)="onSelect(person)">
+        <li *ngFor="let person of people" (click)="onSelect(person)">
             <span class="badge">{{person.id}}</span> 
             <span>{{person.name}}</span>
         </li>
