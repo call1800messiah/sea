@@ -1,44 +1,21 @@
 import { Injectable } from '@angular/core';
-
+import { Observable } from 'rxjs';
 import {ParseService} from './../db/parse.service';
-import 'rxjs/add/operator/toPromise';
 
 import { Person } from './classes/person';
-import {EventEmitter} from 'events';
+
 
 @Injectable()
-export class PersonService {
-    private people: Person[];
-    private peopleSub: EventEmitter;
-    private person: Person;
-    private personSub: EventEmitter;
-    
+export class PersonService {    
     constructor(private ParseService:ParseService) {
 
     }
 
-    getAllPersons(): Person[] {
-        /*
-        return new Promise((resolve, reject) => {
-            if(this.people) {
-                resolve(this.people);
-            } else {
-                this.ParseService.getAllPersons().then(persons => {
-                    this.people = persons;
-                    resolve(this.people);
-                });
-            }
-        });
-        */
-        this.peopleSub = this.ParseService.getAllPersons();
-        this.peopleSub.on("create",(people:Person[])=> {
-            this.people = people;
-            console.log("Create",people);
-        });
-        return this.people;
+    getAllPersons(): Observable<Person[]> {
+        return this.ParseService.getAllPersons();
     }
     
-    getPerson(id:number):Person {
-        return this.person;
+    getPerson(id:number):Observable<Person> {
+        return this.ParseService.getPerson(id);
     }
 }

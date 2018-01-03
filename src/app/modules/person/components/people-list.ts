@@ -14,8 +14,9 @@ export class PeopleListComponent implements OnInit {
     
     constructor(private personService: PersonService, private router: Router){}
     
-    ngOnInit(): void {
-        this.people = this.personService.getAllPersons();
+    ngOnInit(): void {      
+        this.people = [];
+        this.personService.getAllPersons().subscribe(people => this.people = people);
     }
     
     onSelect(person: Person): void {
